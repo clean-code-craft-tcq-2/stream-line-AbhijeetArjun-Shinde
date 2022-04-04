@@ -1,4 +1,7 @@
 #include "Sender.h"
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
 
 void ReadBMS_DataFromFile(float* Temp, float* SOC, float* CR)
 {
