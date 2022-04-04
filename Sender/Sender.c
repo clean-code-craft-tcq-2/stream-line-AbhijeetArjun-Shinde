@@ -5,14 +5,15 @@
 
 void ReadBMS_DataFromFile(float* Temp, float* SOC, float* CR)
 {
+    float Temperature, StateOfCharge,ChargeRate;
     int senderInputValue = 0;
     FILE * file= fopen("./Sender/Sender.txt","r");  
     if (file!=NULL) {
-        for(int i=0;fscanf(file, "%f\t%f\t%f\n", &Temp,&SOC,&CR)!=EOF ;i++)
+        for(int i=0;fscanf(file, "%f\t%f\t%f\n", &Temperature,&StateOfCharge,&ChargeRate)!=EOF ;i++)
         {
-            *(Temp+i) = Temp;
-            *(SOC+i)  = SOC;
-            *(CR+i)   = CR;
+            *(Temp+i) = Temperature;
+            *(SOC+i)  = StateOfCharge;
+            *(CR+i)   = ChargeRate;
         }
     }
     fclose(file);  
