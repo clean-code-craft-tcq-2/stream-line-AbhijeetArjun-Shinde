@@ -20,9 +20,9 @@ void ReadBMS_DataFromFile(float* Temp, float* SOC, float* CR)
 
 void SendBMS_DataToConsole(float* Temp, float* SOC, float* CR)
 {
-    for(int i = 0; i<NO_OF_SAMPLES;i++);
+    for(int i = 0; i<NO_OF_SAMPLES;i++)
     {
-     printf(" Temperature: %f deg C , State of Charge: %f , Charge Rate:%f \n",  *(Temp+i),*(SOC+i),*(CR+i));
+     printf(" Temperature: %.2f deg C , State of Charge: %.2f , Charge Rate:%.2f \n",  *(Temp+i),*(SOC+i),*(CR+i));
     }
 }
 void BMS_Sender()
