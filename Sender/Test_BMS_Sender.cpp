@@ -3,7 +3,7 @@
 
 
 #include "Sender.h"
-#include "test/catch.hpp"
+#include "catch.hpp"
 
 TEST_CASE("Test for Checking sensed current values within range- Sensor 1 ") {
   bool result=0;
