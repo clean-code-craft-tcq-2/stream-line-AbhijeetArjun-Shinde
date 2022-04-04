@@ -6,11 +6,13 @@
 
 
 TEST_CASE("Test for Checking sensed current values within range- Sensor 1 ") {
+  bool result=0;
   float Temperature[NO_OF_SAMPLES] = {0};
   float StateOfCharge[NO_OF_SAMPLES] = {0};
   float ChargeRate[NO_OF_SAMPLES] = {0};
   ReadBMS_DataFromFile( Temperature,StateOfCharge,ChargeRate);
-  REQUIRE(Temperature[0]==2);
-  //REQUIRE(Temperature[25]==56 && StateOfCharge[0]==70 && ChargeRate[0]==0.75); && StateOfCharge[0]==5 && ChargeRate[0]==0.0
+  result = (Temperature[0]==2 && StateOfCharge[0]==5 && ChargeRate[0]==0.0);
+  REQUIRE(result ==1);
+  //REQUIRE(Temperature[25]==56 && StateOfCharge[0]==70 && ChargeRate[0]==0.75); 
  // REQUIRE(Temperature[49]==27 && StateOfCharge[49]==67 && ChargeRate[49]==0.85); 
 }
