@@ -21,4 +21,5 @@ TEST_CASE("Test for Checking weather read of data from file is successful ")
     REQUIRE(ChargeRate[j] == expectedoutput[i][2]);
     j=j+24;
   }
+  BMS_Sender();
 }
