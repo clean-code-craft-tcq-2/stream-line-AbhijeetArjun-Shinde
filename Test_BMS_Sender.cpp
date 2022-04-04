@@ -16,9 +16,9 @@ TEST_CASE("Test for Checking weather read of data from file is successful ") {
   int j =0;
   for(int i=0;i<3;i++)
   {
-    REQUIRE(Temperature[j] == expectedoutput[i,0];
-    REQUIRE(StateOfCharge[j] == expectedoutput[i,1];
-    REQUIRE(ChargeRate[j] == expectedoutput[i,2];
+    REQUIRE(Temperature[j] == expectedoutput[i,0]);
+    REQUIRE(StateOfCharge[j] == expectedoutput[i,1]);
+    REQUIRE(ChargeRate[j] == expectedoutput[i,2]);
     j=j+24;
   }
   //result = (Temperature[0]==2 && StateOfCharge[0]==5 && ChargeRate[0]==0.0 && Temperature[49]==float(27) && StateOfCharge[49]==float(67) && ChargeRate[49]==float(0.85));
