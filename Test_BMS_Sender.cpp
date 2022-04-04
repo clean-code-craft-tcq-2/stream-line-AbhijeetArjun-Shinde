@@ -5,8 +5,8 @@
 #include "Sender/Sender.h"
 
 
-TEST_CASE("Test for Checking weather read of data from file is successful ") {
-  bool result=0;
+TEST_CASE("Test for Checking weather read of data from file is successful ") 
+{
   float Temperature[NO_OF_SAMPLES] = {0};
   float StateOfCharge[NO_OF_SAMPLES] = {0};
   float ChargeRate[NO_OF_SAMPLES] = {0};
@@ -21,10 +21,4 @@ TEST_CASE("Test for Checking weather read of data from file is successful ") {
     REQUIRE(ChargeRate[j] == expectedoutput[i][2]);
     j=j+24;
   }
-  //result = (Temperature[0]==2 && StateOfCharge[0]==5 && ChargeRate[0]==0.0 && Temperature[49]==float(27) && StateOfCharge[49]==float(67) && ChargeRate[49]==float(0.85));
-  //REQUIRE(result ==1);
-  
-  //result = (Temperature[49]==float(27) && StateOfCharge[49]==float(67) && ChargeRate[49]==float(0.85));
-  //REQUIRE(result ==1);
-
 }
