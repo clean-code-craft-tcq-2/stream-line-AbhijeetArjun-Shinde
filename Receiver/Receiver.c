@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+//TODO: accept multiple battery parameters and make them independent. Idea: accept another parameter that takes the sampleSize.
 int sliderAvg(float sample) {
     static int sampleSize = 0;
     static float SampleSlider[5] ={0};
@@ -19,11 +20,10 @@ int sliderAvg(float sample) {
     }
     
 }
-
+//TODO: If found time, find a prettier way to parse incoming data(right now doesnt come in a standard format so its hard))
 void Parse_ReceivedData(float* temperature, float* stateOfCharge, float* chargeRate, int streamSize) {
     char ignoreString[200];
     for(int i = 0; i < streamSize; i++){
-        //todo If found time, find a prettier way to parse incoming data(right now doesnt come in a standard format))
         if(scanf("%50s", ignoreString) == EOF) 
         {
             break;
@@ -45,6 +45,7 @@ void Parse_ReceivedData(float* temperature, float* stateOfCharge, float* chargeR
         
     }
 }
+//TODO: Reduce complexity (CCN)
 void MinMaxValues(float* temperature, float* stateOfCharge, int streamSize) {
     static float min_temp=0, max_temp=0, min_soc=0, max_soc=0;
     for (int i = 0; i < streamSize; i++)

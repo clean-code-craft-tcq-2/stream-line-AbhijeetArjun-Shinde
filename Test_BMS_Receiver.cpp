@@ -34,5 +34,5 @@ TEST_CASE("Test for Checking wether read of data from console input")
   REQUIRE(ChargeRate[0] - ChargeRate_ref[0] <= EPSILON);
 }
 
-
+//TODO: Add test for min max function
 
