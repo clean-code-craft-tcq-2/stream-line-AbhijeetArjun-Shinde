@@ -3,7 +3,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-void ReadBMS_DataFromFile(BatteryParameters *BP, FILE *file)
+void ReadBMS_DataFromFile(BatteryParameters *BP, FILE *InputFile)
 {
     float Temperature, StateOfCharge,ChargeRate;
     if (file!=NULL) {
@@ -18,7 +18,7 @@ void ReadBMS_DataFromFile(BatteryParameters *BP, FILE *file)
     fclose(file);  
 }
 
-void SendBMS_DataToConsole(BatteryParameters *BP, FILE *file)
+void SendBMS_DataToConsole(BatteryParameters *BP, FILE *OutputFile)
 {   
     char buffer[200];
     char *datastream = buffer;
@@ -29,10 +29,9 @@ void SendBMS_DataToConsole(BatteryParameters *BP, FILE *file)
      BP++;
     }
 }
-void BMS_Sender()
+void BMS_Sender(FILE *InputFile)
 {
   BatteryParameters B1[NO_OF_SAMPLES];
-  FILE * file= fopen("./Sender/Sender.txt","r");
   FILE *OutputPath = stdout;
   ReadBMS_DataFromFile(B1,file);
   SendBMS_DataToConsole(B1,OutputPath);
