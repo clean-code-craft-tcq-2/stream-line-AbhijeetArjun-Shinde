@@ -7,10 +7,8 @@
 
 TEST_CASE("Test for Checking weather read of data from file is successful ") 
 {
-  float Temperature[NO_OF_SAMPLES] = {0};
-  float StateOfCharge[NO_OF_SAMPLES] = {0};
-  float ChargeRate[NO_OF_SAMPLES] = {0};
-  ReadBMS_DataFromFile( Temperature,StateOfCharge,ChargeRate);
+  BatteryParameters B2[NO_OF_SAMPLES];
+  ReadBMS_DataFromFile( BP,".Sender/Sender.txt");
   
   float expectedoutput[3][3] = {{2,5,0.0}, {55,67,0.72},{35,47,0.38}};
   int j =0;
