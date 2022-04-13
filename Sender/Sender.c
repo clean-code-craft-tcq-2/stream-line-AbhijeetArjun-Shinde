@@ -3,10 +3,10 @@
 #include <math.h>
 #include <stdlib.h>
 
-void ReadBMS_DataFromFile(BatteryParameters *BP, char *file)
+void ReadBMS_DataFromFile(BatteryParameters *BP, char *filepath)
 {
     float Temperature, StateOfCharge,ChargeRate;
-    FILE * file= fopen(file,"r");  
+    FILE * file= fopen(filepath,"r");  
     if (file!=NULL) {
         for(int i=0;fscanf(file, "%f\t%f\t%f\n", &Temperature,&StateOfCharge,&ChargeRate)!=EOF ;i++)
         {
