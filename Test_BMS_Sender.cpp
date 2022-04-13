@@ -20,6 +20,6 @@ TEST_CASE("Test for Checking weather read of data from file is successful ")
     REQUIRE( (B2[j].ChargeRate) == expectedoutput[i][2]);
     j=j+24;
   }
-  FILE * file= fopen("./Sender/Sender.txt","r");
-  BMS_Sender(file);
+  FILE * file2= fopen("./Sender/Sender.txt","r");
+  BMS_Sender(file2);
 }
