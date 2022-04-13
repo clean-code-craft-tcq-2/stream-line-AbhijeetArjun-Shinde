@@ -9,9 +9,9 @@ void ReadBMS_DataFromFile(BatteryParameters *BP, FILE *file)
     if (file!=NULL) {
         for(int i=0;fscanf(file, "%f\t%f\t%f\n", &Temperature,&StateOfCharge,&ChargeRate)!=EOF ;i++)
         {
-            *(BP->Temperature) = Temperature;
-            *(BP->StateOfCharge)  = StateOfCharge;
-            *(BP->ChargeRate)   = ChargeRate;
+            (BP->Temperature) = Temperature;
+            (BP->StateOfCharge)  = StateOfCharge;
+            (BP->ChargeRate)   = ChargeRate;
             BP++;
         }
     }
