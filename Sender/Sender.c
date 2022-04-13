@@ -35,6 +35,6 @@ void BMS_Sender()
 {
   BatteryParameters B1[NO_OF_SAMPLES];
   FILE *file= fopen(".Sender/Sender.txt","r");  
-  //ReadBMS_DataFromFile(B1,file);
+  ReadBMS_DataFromFile(B1,file);
   //SendBMS_DataToConsole(B1);
 }
