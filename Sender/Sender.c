@@ -24,14 +24,16 @@ void SendBMS_DataToConsole(BatteryParameters *BP)
     char buffer[100];
     for(int i = 0; i<NO_OF_SAMPLES;i++)
     {
-     sprintf(buffer, " {\"Temperature\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}",  (BP[i].Temperature),(BP[i].StateOfCharge),(BP[i].ChargeRate));
+     sprintf(buffer, " {\"Temperature\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}",  (BP->Temperature),(BP->StateOfCharge),(BP->ChargeRate));
      printf("%s\n",buffer);
+     BP++;
     }
 }
 void BMS_Sender()
 {
   BatteryParameters B1[NO_OF_SAMPLES];
   char FilePath[100] = ".Sender/Sender.txt";
-  ReadBMS_DataFromFile(B1,FilePath);
+    char *fp = FilePath;
+  ReadBMS_DataFromFile(B1,fp);
   SendBMS_DataToConsole(B1);
 }
