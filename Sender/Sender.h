@@ -6,6 +6,6 @@ typedef struct{
   float ChargeRate;
 }BatteryParameters;
 
-void ReadBMS_DataFromFile(float* Temp, float* SOC, float* CR);
-void SendBMS_DataToConsole(float* Temp, float* SOC, float* CR);
+void ReadBMS_DataFromFile(BatteryParameters *, char *);
+void SendBMS_DataToConsole(BatteryParameters *);
 void BMS_Sender();
