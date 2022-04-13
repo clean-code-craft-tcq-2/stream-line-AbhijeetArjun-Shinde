@@ -21,7 +21,7 @@ void ReadBMS_DataFromFile(BatteryParameters *BP, char *filepath)
 
 void SendBMS_DataToConsole(BatteryParameters *BP)
 {   
-    char buffer[400];
+    char buffer[200];
     char *datastream = buffer;
     FILE *endPoint = stdout;
     for(int i = 0; i<NO_OF_SAMPLES;i++)
@@ -35,7 +35,6 @@ void BMS_Sender()
 {
   BatteryParameters B1[NO_OF_SAMPLES];
   char FilePath[100] = ".Sender/Sender.txt";
-  char *fp = FilePath;
-  ReadBMS_DataFromFile(B1,FilePath);
-  SendBMS_DataToConsole(B1);
+  ReadBMS_DataFromFile(&B1,FilePath);
+  SendBMS_DataToConsole(&B1);
 }
