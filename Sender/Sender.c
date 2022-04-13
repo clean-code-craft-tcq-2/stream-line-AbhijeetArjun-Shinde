@@ -9,7 +9,6 @@ void ReadBMS_DataFromFile(BatteryParameters *BP, FILE *InputFile)
     if (InputFile!=NULL) {
         for(int i=0;fscanf(InputFile, "%f\t%f\t%f\n", &Temperature,&StateOfCharge,&ChargeRate)!=EOF ;i++)
         {
-            printf("HI\n");
             (BP->Temperature) = Temperature;
             (BP->StateOfCharge)  = StateOfCharge;
             (BP->ChargeRate)   = ChargeRate;
@@ -25,7 +24,7 @@ void SendBMS_DataToConsole(BatteryParameters *BP, FILE *OutputFile)
     char *datastream = buffer;
     for(int i = 0; i<NO_OF_SAMPLES;i++)
     {
-     sprintf(datastream, " {\"Temperature\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}",  BP->Temperature,BP->StateOfCharge,BP->ChargeRate);
+     sprintf(datastream, " {\"Temperature\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}",  (BP->Temperature),(BP->StateOfCharge),(BP->ChargeRate));
      fprintf(OutputFile,"%s\n",datastream);
      BP++;
     }
