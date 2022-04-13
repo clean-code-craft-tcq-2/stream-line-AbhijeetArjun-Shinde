@@ -10,5 +10,5 @@ typedef struct{
 
 
 void ReadBMS_DataFromFile(BatteryParameters *BP, FILE *file);
-void SendBMS_DataToConsole(BatteryParameters *);
+void SendBMS_DataToConsole(BatteryParameters *Bp, FILE *file);
 void BMS_Sender();
