@@ -14,10 +14,10 @@ TEST_CASE("Test for Checking weather read of data from file is successful ")
   //int j =0;
   for(int i=0;i<3;i++)
   {
-    REQUIRE(B2->Temperature == expectedoutput[i][0]);
-    REQUIRE(B2->StateOfCharge == expectedoutput[i][1]);
-    REQUIRE(B2->ChargeRate == expectedoutput[i][2]);
-    B2=B2+24;
+    REQUIRE(B2[j].Temperature == expectedoutput[i][0]);
+    REQUIRE(B2[j].StateOfCharge == expectedoutput[i][1]);
+    REQUIRE(B2[j].ChargeRate == expectedoutput[i][2]);
+    j=j+24;
   }
   BMS_Sender();
 }
