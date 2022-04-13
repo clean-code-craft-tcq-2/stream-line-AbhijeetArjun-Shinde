@@ -4,7 +4,8 @@
 #include "Sender/Sender.h"
 
 int main() {
-    BMS_Sender();
+    FILE * file= fopen("./Sender/Sender.txt","r");
+    BMS_Sender(file);
 
     return 0;
 }
