@@ -27,7 +27,7 @@ void SendBMS_DataToConsole(BatteryParameters *BP, FILE *OutputFile)
      printf(" {\"Temperature\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}\n",  BP->Temperature,BP->StateOfCharge,BP->ChargeRate);
      //sprintf(datastream, " {\"Temperature\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}",  (BP->Temperature),(BP->StateOfCharge),(BP->ChargeRate));
      //fprintf(OutputFile,"%s\n",datastream);
-     BP--;
+     BP++;
     }
 }
 void BMS_Sender(FILE *InputFile)
@@ -35,5 +35,11 @@ void BMS_Sender(FILE *InputFile)
   BatteryParameters B1[NO_OF_SAMPLES];
   FILE *OutputPath = stdout;
   ReadBMS_DataFromFile(B1,InputFile);
+  for(int i = 0; i<NO_OF_SAMPLES;i++)
+    {
+     printf(" {\"Temperaturevv\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}\n",  B1[i].Temperature,B1[i].StateOfCharge,B1[i].ChargeRate);
+     //sprintf(datastream, " {\"Temperature\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}",  (BP->Temperature),(BP->StateOfCharge),(BP->ChargeRate));
+     //fprintf(OutputFile,"%s\n",datastream);
+    }
   SendBMS_DataToConsole(B1,OutputPath);
 }
