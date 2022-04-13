@@ -24,7 +24,7 @@ void SendBMS_DataToConsole(BatteryParameters *BP, FILE *OutputFile)
     char *datastream = buffer;
     for(int i = 0; i<NO_OF_SAMPLES;i++)
     {
-     sprintf(" {\"Temperature\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}\n",  (BP->Temperature),(BP->StateOfCharge),(BP->ChargeRate));
+     printf(" {\"Temperature\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}\n",  (BP->Temperature),(BP->StateOfCharge),(BP->ChargeRate));
      //sprintf(datastream, " {\"Temperature\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}",  (BP->Temperature),(BP->StateOfCharge),(BP->ChargeRate));
      //fprintf(OutputFile,"%s\n",datastream);
      BP++;
