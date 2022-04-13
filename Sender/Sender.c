@@ -3,31 +3,34 @@
 #include <math.h>
 #include <stdlib.h>
 
-void ReadBMS_DataFromFile(float* Temp, float* SOC, float* CR)
+void ReadBMS_DataFromFile(BatteryParameters *BP, char *file)
 {
     float Temperature, StateOfCharge,ChargeRate;
-    FILE * file= fopen("./Sender/Sender.txt","r");  
+    FILE * file= fopen(file,"r");  
     if (file!=NULL) {
         for(int i=0;fscanf(file, "%f\t%f\t%f\n", &Temperature,&StateOfCharge,&ChargeRate)!=EOF ;i++)
         {
-            *(Temp+i) = Temperature;
-            *(SOC+i)  = StateOfCharge;
-            *(CR+i)   = ChargeRate;
+            *(BP[i].Temperature) = Temperature;
+            *(BP[i].StateOfCharge)  = StateOfCharge;
+            *(BP[i].ChargeRate)   = ChargeRate;
         }
     }
     fclose(file);  
 }
 
-void SendBMS_DataToConsole(float* Temp, float* SOC, float* CR)
-{
+void SendBMS_DataToConsole(BatteryParameters *BP)
+{   
+    char buffer[100];
     for(int i = 0; i<NO_OF_SAMPLES;i++)
     {
-     printf(" Temperature: %.2f deg C , State of Charge: %.2f , Charge Rate: %.2f \n",  *(Temp+i),*(SOC+i),*(CR+i));
+     sprintf(buffer, " {\"Temperature\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}",  *(BP[i].Temperature),*(BP[i].StateOfCharge),*(BP[i].ChargeRate));
+     printf("%s\n",buffer);
     }
 }
 void BMS_Sender()
 {
-  float Temperature[NO_OF_SAMPLES],StateOfCharge[NO_OF_SAMPLES],ChargeRate[NO_OF_SAMPLES] = {0};
-  ReadBMS_DataFromFile( Temperature,StateOfCharge,ChargeRate);
-  SendBMS_DataToConsole( Temperature,StateOfCharge,ChargeRate);
+  BatteryParameters B1[NO_OF_SAMPLES];
+  char FilePath[100] = ".Sender/Sender.txt";
+  ReadBMS_DataFromFile(B1,FilePath);
+  SendBMS_DataToConsole(B1);
 }
