@@ -11,7 +11,7 @@ TEST_CASE("Test for Checking weather read of data from file is successful ")
   ReadBMS_DataFromFile( B2,".Sender/Sender.txt");
   
   float expectedoutput[3][3] = {{2,5,0.0}, {55,67,0.72},{35,47,0.38}};
-  //int j =0;
+  int j =0;
   for(int i=0;i<3;i++)
   {
     REQUIRE(B2[j].Temperature == expectedoutput[i][0]);
