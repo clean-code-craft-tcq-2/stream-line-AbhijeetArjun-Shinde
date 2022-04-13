@@ -22,10 +22,12 @@ void ReadBMS_DataFromFile(BatteryParameters *BP, char *filepath)
 void SendBMS_DataToConsole(BatteryParameters *BP)
 {   
     char buffer[100];
+    char *datastream = buffer;
+    FILE *endPoint = stdout;
     for(int i = 0; i<NO_OF_SAMPLES;i++)
     {
-     sprintf(buffer, " {\"Temperature\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}",  (BP->Temperature),(BP->StateOfCharge),(BP->ChargeRate));
-     printf("%s\n",buffer);
+     sprintf(datastream, " {\"Temperature\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}",  BP->Temperature,BP->StateOfCharge,BP->ChargeRate);
+     fprintf(endpoint,"%s\n",datastream);
      BP++;
     }
 }
