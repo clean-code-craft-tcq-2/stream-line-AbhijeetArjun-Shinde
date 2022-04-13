@@ -1,5 +1,7 @@
 #define NO_OF_SAMPLES 50
 
+#include <stdio.h>
+
 typedef struct{
   float Temperature;
   float StateOfCharge;
