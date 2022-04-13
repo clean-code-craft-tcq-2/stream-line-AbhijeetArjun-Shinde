@@ -19,22 +19,22 @@ void ReadBMS_DataFromFile(BatteryParameters *BP, FILE *file)
     fclose(file);  
 }
 
-void SendBMS_DataToConsole(BatteryParameters *BP)
+void SendBMS_DataToConsole(BatteryParameters *BP, FILE *file)
 {   
     char buffer[200];
     char *datastream = buffer;
-    FILE *endPoint = stdout;
     for(int i = 0; i<NO_OF_SAMPLES;i++)
     {
      sprintf(datastream, " {\"Temperature\": %.2f degC, \"StateOfCharge\": %.2f, \"ChargeRate\": %.2f}",  BP->Temperature,BP->StateOfCharge,BP->ChargeRate);
-     fprintf(endPoint,"%s\n",datastream);
+     fprintf(file,"%s\n",datastream);
      BP++;
     }
 }
 void BMS_Sender()
 {
   BatteryParameters B1[NO_OF_SAMPLES];
-  FILE *file= fopen(".Sender/Sender.txt","r");  
+  FILE *file= fopen(".Sender/Sender.txt","r");
+  FILE *OutputPath = stdout;
   //ReadBMS_DataFromFile(B1,file);
-  SendBMS_DataToConsole(B1);
+  SendBMS_DataToConsole(B1,OutputPath);
 }
