@@ -8,9 +8,8 @@
 TEST_CASE("Test for Checking weather read of data from file is successful ") 
 {
   BatteryParameters B2[NO_OF_SAMPLES];
-  char FilePath[100] = ".Sender/Sender.txt";
-  char * fp = FilePath;
-  ReadBMS_DataFromFile( B2,fp);
+  FILE *file= fopen(".Sender/Sender.txt","r");
+  ReadBMS_DataFromFile( B2,file);
   
   float expectedoutput[3][3] = {{2,5,0.0}, {55,67,0.72},{35,47,0.38}};
   int j =0;
