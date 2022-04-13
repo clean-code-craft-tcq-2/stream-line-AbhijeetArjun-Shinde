@@ -33,9 +33,9 @@ void SendBMS_DataToConsole(BatteryParameters *BP)
 }
 void BMS_Sender()
 {
-  BatteryParameters B1[NO_OF_SAMPLES];
+  BatteryParameters B1[100];
   char FilePath[100] = ".Sender/Sender.txt";
-    char *fp = FilePath;
+  char *fp = FilePath;
   ReadBMS_DataFromFile(B1,fp);
   SendBMS_DataToConsole(B1);
 }
