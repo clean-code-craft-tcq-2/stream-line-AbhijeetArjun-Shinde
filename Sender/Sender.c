@@ -15,7 +15,7 @@ void ReadBMS_DataFromFile(BatteryParameters *BP, FILE *InputFile)
             BP++;
         }
     }
-    fclose(file);  
+    fclose(InputFile);  
 }
 
 void SendBMS_DataToConsole(BatteryParameters *BP, FILE *OutputFile)
