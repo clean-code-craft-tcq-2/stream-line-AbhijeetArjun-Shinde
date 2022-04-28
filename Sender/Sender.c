@@ -29,18 +29,15 @@ void SendBMS_Data(BatteryParameters *BMS_DataPtr, FILE *OutputFile)
      BMS_DataPtr++;
     }
 }
-void BMS_Sender(FILE *InputFile , FILE *OutputPath )
+void BMS_Sender(BatteryParameters *BMS_Data, FILE *InputFile , FILE *OutputPath )
 {
-  
-  BatteryParameters InpReadFromFile[NO_OF_SAMPLES];
-  
   if (InputFile!=NULL) 
   {
-  ReadBMS_DataFromFile(InpReadFromFile,InputFile);
+  ReadBMS_DataFromFile(BMS_Data,InputFile);
   }
   if (OutputPath!=NULL) 
   {
-  SendBMS_Data(InpReadFromFile,OutputPath);
+  SendBMS_Data(BMS_Data,OutputPath);
   }
   
 }
