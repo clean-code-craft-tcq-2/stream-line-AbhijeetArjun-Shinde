@@ -1,4 +1,4 @@
-#define NO_OF_SAMPLES 50
+void BMS_Sender(BatteryParameters *BMS_Data, FILE *InputFile , FILE *OutputPath )#define NO_OF_SAMPLES 50
 
 #include <stdio.h>
 
@@ -11,4 +11,4 @@ typedef struct{
 
 void ReadBMS_DataFromFile(BatteryParameters *BMS_DataPtr, FILE *InputFile);
 void SendBMS_Data(BatteryParameters *BMS_DataPtr, FILE *OutputFile);
-void BMS_Sender(FILE *InputFile , FILE *OutputPath );
+void BMS_Sender(BatteryParameters *BMS_Data, FILE *InputFile , FILE *OutputPath )
