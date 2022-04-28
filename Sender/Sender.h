@@ -1,4 +1,4 @@
-void BMS_Sender(FILE *InputFile , FILE *OutputPath );#define NO_OF_SAMPLES 50
+#define NO_OF_SAMPLES 50
 
 #include <stdio.h>
 
