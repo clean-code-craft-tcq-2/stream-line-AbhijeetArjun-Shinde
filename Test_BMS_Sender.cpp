@@ -10,9 +10,6 @@ TEST_CASE("Test for Checking weather read of data from file is successful ")
   BatteryParameters BMS_Data[NO_OF_SAMPLES];
   FILE * InputFile= fopen("./Sender/Sender.txt","r");
   FILE *OutputPath = stdout;
-   // FILE * file2= fopen("./Sender/Sender.txt","r");
-  
-  //ReadBMS_DataFromFile( BMS_Data,file);
   
   BMS_Sender(BMS_Data,InputFile,OutputPath);
   
