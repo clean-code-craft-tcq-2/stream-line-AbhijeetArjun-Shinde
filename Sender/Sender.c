@@ -18,7 +18,7 @@ void ReadBMS_DataFromFile(BatteryParameters *BMS_DataPtr, FILE *InputFile)
     fclose(InputFile);  
 }
 
-void SendBMS_DataToConsole(BatteryParameters *BMS_DataPtr, FILE *OutputFile)
+void SendBMS_Data(BatteryParameters *BMS_DataPtr, FILE *OutputFile)
 {   
     char buffer[200];
     char *datastream = buffer;
@@ -40,7 +40,7 @@ void BMS_Sender(FILE *InputFile , FILE *OutputPath )
   }
   if (OutputPath!=NULL) 
   {
-  SendBMS_DataToConsole(InpReadFromFile,OutputPath);
+  SendBMS_Data(InpReadFromFile,OutputPath);
   }
   
 }
