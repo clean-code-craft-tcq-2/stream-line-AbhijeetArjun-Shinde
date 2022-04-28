@@ -21,5 +21,6 @@ TEST_CASE("Test for Checking weather read of data from file is successful ")
     j=j+24;
   }
   FILE * file2= fopen("./Sender/Sender.txt","r");
-  BMS_Sender(file2);
+  FILE *OutputPath = stdout;
+  BMS_Sender(file2,OutputPath);
 }
